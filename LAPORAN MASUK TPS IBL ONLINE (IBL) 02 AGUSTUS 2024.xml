@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>OPTIPLEX 990</Author>
+  <LastAuthor>ALVIANZACHRYFATURRAHMAN</LastAuthor>
+  <Created>2024-07-08T11:17:05Z</Created>
+  <LastSaved>2024-08-02T12:06:50Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>11840</WindowHeight>
+  <WindowWidth>18200</WindowWidth>
+  <WindowTopX>480</WindowTopX>
+  <WindowTopY>500</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s17">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+  </Style>
+  <Style ss:ID="s18">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s19">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <NumberFormat ss:Format="Fixed"/>
+  </Style>
+  <Style ss:ID="s20">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s21" ss:Parent="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Interior/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s22">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <NumberFormat ss:Format="#\ ?/?"/>
+  </Style>
+  <Style ss:ID="s23">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <NumberFormat ss:Format="0"/>
+  </Style>
+  <Style ss:ID="s25">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="3" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="53" ss:DefaultRowHeight="15">
+   <Column ss:Width="50"/>
+   <Column ss:Width="45"/>
+   <Column ss:Width="106"/>
+   <Column ss:Width="65"/>
+   <Column ss:Width="63"/>
+   <Column ss:Index="7" ss:Width="74"/>
+   <Column ss:Width="77"/>
+   <Column ss:Width="67"/>
+   <Column ss:Width="69"/>
+   <Column ss:Width="117"/>
+   <Column ss:Width="119"/>
+   <Column ss:Width="117"/>
+   <Column ss:Width="150"/>
+   <Column ss:Width="42"/>
+   <Column ss:Index="17" ss:Width="57"/>
+   <Column ss:Width="83"/>
+   <Column ss:Width="69"/>
+   <Column ss:Width="71"/>
+   <Column ss:Width="57"/>
+   <Column ss:AutoFitWidth="0" ss:Width="46"/>
+   <Column ss:Width="69"/>
+   <Column ss:Width="91"/>
+   <Column ss:Width="134"/>
+   <Column ss:Width="95"/>
+   <Column ss:Width="91"/>
+   <Column ss:Width="141"/>
+   <Column ss:Width="67"/>
+   <Column ss:Width="62"/>
+   <Column ss:Width="75"/>
+   <Column ss:Width="84"/>
+   <Column ss:Width="102"/>
+   <Column ss:Width="87"/>
+   <Column ss:Width="123" ss:Span="1"/>
+   <Column ss:Index="37" ss:Width="81"/>
+   <Column ss:Width="82"/>
+   <Column ss:Width="74"/>
+   <Column ss:Width="75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s17">
+    <Cell><Data ss:Type="String">KD_DOK</Data></Cell>
+    <Cell><Data ss:Type="String">KD_TPS</Data></Cell>
+    <Cell><Data ss:Type="String">NM_PENGANGKUT</Data></Cell>
+    <Cell><Data ss:Type="String">NO_FLIGHT</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">CALL_SIGN</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_TIBA</Data></Cell>
+    <Cell><Data ss:Type="String">KD_GUDANG</Data></Cell>
+    <Cell><Data ss:Type="String">REF_NUMBER</Data></Cell>
+    <Cell><Data ss:Type="String">NO_BLAWB</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_BLAWB</Data></Cell>
+    <Cell><Data ss:Type="String">NO_MASTER_BLAWB</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_MASTER_BLAWB</Data></Cell>
+    <Cell><Data ss:Type="String">ID_CONSIGNEE</Data></Cell>
+    <Cell><Data ss:Type="String">CONSIGNEE</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">BRUTO</Data></Cell>
+    <Cell><Data ss:Type="String">NO_BC31</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_BC31</Data></Cell>
+    <Cell><Data ss:Type="String">NO_POS_BC31</Data></Cell>
+    <Cell><Data ss:Type="String">CONT_ASAL</Data></Cell>
+    <Cell><Data ss:Type="String">SERI_KEMAS</Data></Cell>
+    <Cell><Data ss:Type="String">KD_EMAS</Data></Cell>
+    <Cell><Data ss:Type="String">JML_KEMAS</Data></Cell>
+    <Cell><Data ss:Type="String">KD_TIMBUN</Data></Cell>
+    <Cell><Data ss:Type="String">KD_DOK_INOUT</Data></Cell>
+    <Cell><Data ss:Type="String">NO_DOK_INOUT</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_DOK_INOUT</Data></Cell>
+    <Cell><Data ss:Type="String">WK_INOUT</Data></Cell>
+    <Cell><Data ss:Type="String">KD_SAR_ANGKUT_INOUT</Data></Cell>
+    <Cell><Data ss:Type="String">NO_POL</Data></Cell>
+    <Cell><Data ss:Type="String">PEL_MUAT</Data></Cell>
+    <Cell><Data ss:Type="String">PEL_TRANSIT</Data></Cell>
+    <Cell><Data ss:Type="String">PEL_BONGKAR</Data></Cell>
+    <Cell><Data ss:Type="String">GUDANG_TUJUAN</Data></Cell>
+    <Cell><Data ss:Type="String">KODE_KANTOR</Data></Cell>
+    <Cell><Data ss:Type="String">NO_DAFTAR_PABEAN</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_DAFTER_PABEAN</Data></Cell>
+    <Cell><Data ss:Type="String">NO_SEGEL_BC</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_SEGEL_BC</Data></Cell>
+    <Cell><Data ss:Type="String">NO_IJIN_TPS</Data></Cell>
+    <Cell><Data ss:Type="String">TGL_IJIN_TPS</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25" ss:StyleID="s18">
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">IBL1</Data></Cell>
+    <Cell ss:StyleID="s20"><Data ss:Type="String">QG</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String"> </Data></Cell>
+    <Cell><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell><Data ss:Type="String">BT20</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">IBL24TPS116</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s22"><Data ss:Type="Number">840446712301000</Data></Cell>
+    <Cell><Data ss:Type="String">PT INDO BERJAYA LOGISTIK</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">8.5500000000000007</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">BP 8098 Y</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">PK</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">55</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">BAG2482IDB6001SUB</Data></Cell>
+    <Cell><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="Number">20240802134700</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">09</Data></Cell>
+    <Cell><Data ss:Type="String">BP 8184 DM</Data></Cell>
+    <Cell><Data ss:Type="String">IDBTH</Data></Cell>
+    <Cell ss:Index="32"><Data ss:Type="String">IDCGK</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="Number">20400</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="Number">20240802</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25" ss:StyleID="s18">
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">IBL1</Data></Cell>
+    <Cell ss:StyleID="s20"><Data ss:Type="String">QG</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String"> </Data></Cell>
+    <Cell><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell><Data ss:Type="String">BT20</Data></Cell>
+    <Cell ss:StyleID="s21"><Data ss:Type="String">IBL24TPS116</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s22"><Data ss:Type="Number">840446712301000</Data></Cell>
+    <Cell><Data ss:Type="String">PT INDO BERJAYA LOGISTIK</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">11.4</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">BP 8098 Y</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">PK</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="Number">55</Data></Cell>
+    <Cell ss:StyleID="s17"><Data ss:Type="String">BAG2482IH8L001CGK</Data></Cell>
+    <Cell><Data ss:Type="Number">20240802</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="Number">20240802134700</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">09</Data></Cell>
+    <Cell><Data ss:Type="String">BP 8184 DM</Data></Cell>
+    <Cell><Data ss:Type="String">IDBTH</Data></Cell>
+    <Cell ss:Index="32"><Data ss:Type="String">IDCGK</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="Number">20400</Data></Cell>
+    <Cell ss:Index="36"><Data ss:Type="Number">20240802</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C25</Range>
+   <Condition>
+    <Value1>IF(FALSE,_SORT(_ONEDARRAY(FALSE,R2C25:R2C25)),AND(COUNTIF(R2C25:R2C25, RC)&gt;1,NOT(ISBLANK(RC))))</Value1>
+    <Format Style='color:#9C0006;background:#FFC7CE'/>
+   </Condition>
+  </ConditionalFormatting>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet2">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="53" ss:DefaultRowHeight="15">
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet3">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="53" ss:DefaultRowHeight="15">
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

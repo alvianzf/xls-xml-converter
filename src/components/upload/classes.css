@@ -1,0 +1,4 @@
+.custom-border {
+    border: 2px dashed #4CAF50 !important;
+    border-radius: 8px;
+  }
