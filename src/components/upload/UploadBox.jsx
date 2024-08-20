@@ -38,7 +38,6 @@ function UploadBox({handleConvert}) {
           Convert
         </button>
       </form>
-      <FileList files={files} />
     </>
   );
 }
