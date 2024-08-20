@@ -15,6 +15,7 @@ function Main() {
 
   return (
     <div>
+    <h2>Excel to XML converter</h2>
       <UploadBox handleConvert={handleConvert} />
       <XmlArea generated={xml} />
     </div>
