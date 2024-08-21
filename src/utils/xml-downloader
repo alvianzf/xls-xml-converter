@@ -1,0 +1,11 @@
+  const downloadXmlFile = () => {
+    const blob = new Blob([generated], { type: "application/xml" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "coverted.xml";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  export default downloadXmlFile

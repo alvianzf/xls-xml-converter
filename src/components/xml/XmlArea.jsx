@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import downloadXmlFile from "../../utils/xml-downloader";
 
 function XmlArea({ generated }) {
   const escapeXml = (unsafe) => {
@@ -10,29 +11,40 @@ function XmlArea({ generated }) {
       .replace(/'/g, "&#039;");
   };
 
-  const downloadXmlFile = () => {
-    const blob = new Blob([generated], { type: "application/xml" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "coverted.xml";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownload = () => {
+    downloadXmlFile(generated);
   };
 
-  useEffect(() => {
-    console.log({ generated });
-  }, [generated]);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(generated).then(
+      () => {
+        alert("XML content copied to clipboard!");
+      },
+      (err) => {
+        alert("Failed to copy text: ", err);
+      }
+    );
+  };
+
+  useEffect(() => {}, [generated]);
 
   return (
     <div>
       {generated && (
-        <button
-          onClick={downloadXmlFile}
-          style={{ border: "1px solid white", margin: "2em" }}
-        >
-          Download XML
-        </button>
+        <div style={{ margin: "2em 0" }}>
+          <button
+            onClick={handleDownload}
+            style={{ border: "1px solid black", color: 'white', background: 'black', marginRight: "1em" }}
+          >
+            Download XML
+          </button>
+          <button
+            onClick={handleCopy}
+            style={{ border: "1px solid white", background: "orange" }}
+          >
+            Copy XML
+          </button>
+        </div>
       )}
       {generated && (
         <pre
