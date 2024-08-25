@@ -1,46 +1,23 @@
-import * as Excel from "xlsx";
-import * as XML from "./xml_formatter";
+import ExcelReader from "./excel_reader";
+import ObjectFormatter from "./object_formatter";
+import XMLFormatter from "./xml_formatter";
 
-const readExcel = (file, callback) => {
-  const reader = new FileReader();
+class Converter {
+  constructor(file) {
+    this.file = file;
+  }
 
-  reader.onload = (e) => {
-    const data = new Uint8Array(e.target.result);
-    const workbook = Excel.read(data);
+  convert(callback) {
+    const reader = new ExcelReader(this.file);
 
-    const worksheet = workbook?.Sheets[workbook?.SheetNames[0]];
-    const jsonData = Excel.utils.sheet_to_json(worksheet, {
-      header: 1,
-      raw: true,
+    reader.read((jsonData) => {
+      const formattedData = ObjectFormatter.format(jsonData);
+      const xmlFormatter = new XMLFormatter(formattedData);
+      const xmlData = xmlFormatter.getFormattedXML();
+
+      callback(xmlData);
     });
+  }
+}
 
-    const xmlData = formatObject(jsonData);
-
-    callback(xmlData);
-  };
-
-  reader.readAsArrayBuffer(file);
-};
-
-const formatObject = (jsonData) => {
-  const headers = jsonData[0];
-  const result = { headers };
-
-  headers.forEach((header) => {
-    result[header] = [];
-  });
-
-  jsonData.slice(1).forEach((row) => {
-    headers.forEach((header, index) => {
-      result[header].push(index < row.length ? row[index] : null);
-    });
-  });
-
-  console.log({ result });
-
-  const xml = XML.XMLformatter(result);
-
-  return xml;
-};
-
-export default readExcel;
+export default Converter;

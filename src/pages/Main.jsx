@@ -5,18 +5,17 @@ import XmlArea from "../components/xml/XmlArea";
 
 function Main() {
   const [xml, setXml] = useState("");
-  const handleConvert = (uploaded) => {
-    readExcel(uploaded, (e) => {
-      setXml(e);
-    });
+
+  const handleXMLResult = (uploaded) => {
+    setXml(uploaded);
   };
 
   useEffect(() => {}, [xml]);
 
   return (
     <div>
-    <h2>Excel to XML converter</h2>
-      <UploadBox handleConvert={handleConvert} />
+      <h2>Excel to XML converter</h2>
+      <UploadBox handleXMLResult={handleXMLResult} />
       <XmlArea generated={xml} />
     </div>
   );

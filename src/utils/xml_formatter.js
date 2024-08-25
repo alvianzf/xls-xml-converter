@@ -1,53 +1,69 @@
-const XML_HEADER = `<![CDATA[<DOCUMENT xmlns="cocokms.xsd">
-<COCOKMS>
-    <HEADER>
-`;
-const XML_BREAK = `</HEADER>
-    <DETIL>
-`;
-const XML_FOOTER = `</DETIL>
-</COCOKMS>
-</DOCUMENT>]]>
-`;
-
-const headerFormatter = ({ headers }) => {
-  let content = "";
-
-  for (let i = 0; i < headers.length; i++) {
-    content += `<${headers[i]}></${headers[i]}>
-    `;
+class XMLFormatter {
+  constructor(data) {
+    this.data = data;
   }
 
-  const header = XML_HEADER + content + XML_BREAK;
+  getFormattedXML() {
+    return this.headerFormatter() + this.bodyFormatter() + this.constructor.XML_FOOTER;
+  }
 
-  return header;
-};
+  headerFormatter() {
+    let content = "";
 
-const bodyFormatter = (data) => {
-  const length = data[data.headers[0]].length;
-  console.log(data.headers.length);
-  let content = "";
-
-  for (let i = 0; i < length; i++) {
-    content += `<KMS>
-    `;
-    for (let j = 0; j < data.headers.length; j++) {
-      if (data[data.headers[j]][i]) {
-        content += `<${data.headers[j]}>${data[data.headers[j]][i]}</${
-          data.headers[j]
-        }>
-              `;
+    for (let i = 0; i < this.constructor.HEADER_DATA.length; i++) {
+      if (this.data[this.constructor.HEADER_DATA[i]]) {
+        content += `<${this.constructor.HEADER_DATA[i]}>${this.data[this.constructor.HEADER_DATA[i]]}</${this.constructor.HEADER_DATA[i]}>
+      `;
       }
     }
-    content += `</KMS>
-    `;
+
+    const header = this.constructor.XML_HEADER + content + this.constructor.XML_BREAK;
+    return header;
   }
 
-  return content;
-};
+  bodyFormatter() {
+    const length = this.data[this.data.headers[0]].length;
+    let content = "";
 
-const XMLformatter = (data) => {
-  return headerFormatter(data) + bodyFormatter(data) + XML_FOOTER;
-};
+    for (let i = 0; i < length; i++) {
+      content += `<KMS>
+`;
+      for (let j = 0; j < this.data.headers.length; j++) {
+        if (this.data[this.data.headers[j]][i]) {
+          content += `<${this.data.headers[j]}>${this.data[this.data.headers[j]][i]}</${this.data.headers[j]}>
+`;
+        }
+      }
+      content += `</KMS>`;
+    }
 
-export { headerFormatter, bodyFormatter, XMLformatter };
+    return content;
+  }
+}
+
+XMLFormatter.XML_HEADER = `<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT xmlns="cocokms.xsd">
+<COCOKMS>
+<HEADER>
+`;
+XMLFormatter.XML_BREAK = `</HEADER>
+<DETIL>
+`;
+XMLFormatter.XML_FOOTER = `
+</DETIL>
+</COCOKMS>
+</DOCUMENT>
+`;
+
+XMLFormatter.HEADER_DATA = [
+  "KD_DOK",
+  "KD_TPS",
+  "NM_ANGKUT",
+  "NO_VOY_FLIGHT",
+  "CALL_SIGN",
+  "TGL_TIBA",
+  "KD_GUDANG",
+  "REF_NUMBER",
+];
+
+export default XMLFormatter;
