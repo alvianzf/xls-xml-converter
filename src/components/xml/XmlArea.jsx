@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import downloadXmlFile from "../../utils/xml-downloader";
+import downloadXmlFile from "../../utils/xml/xml-downloader";
+import soapRequest from "../../utils/soap/send_soap_request";
 
 function XmlArea({ generated }) {
   const escapeXml = (unsafe) => {
@@ -13,6 +14,12 @@ function XmlArea({ generated }) {
 
   const handleDownload = () => {
     downloadXmlFile(generated);
+  };
+
+  const handleSend = async () => {
+    const response = await soapRequest(generated);
+
+    console.log(response);
   };
 
   const handleCopy = () => {
@@ -34,7 +41,12 @@ function XmlArea({ generated }) {
         <div style={{ margin: "2em 0" }}>
           <button
             onClick={handleDownload}
-            style={{ border: "1px solid black", color: 'white', background: 'black', marginRight: "1em" }}
+            style={{
+              border: "1px solid black",
+              color: "white",
+              background: "black",
+              marginRight: "1em",
+            }}
           >
             Download XML
           </button>
@@ -43,6 +55,9 @@ function XmlArea({ generated }) {
             style={{ border: "1px solid white", background: "orange" }}
           >
             Copy XML
+          </button>
+          <button style={{ background: "red" }} onClick={handleSend}>
+            Send SOAP
           </button>
         </div>
       )}

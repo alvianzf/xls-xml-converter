@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FileUploader } from "react-drag-drop-files";
-import Converter from "../../utils/converter";
+import Converter from "../../utils/xml/converter";
 import "./classes.css";
 
 const fileTypes = ["XLX", "XLSX", "XLS"];
