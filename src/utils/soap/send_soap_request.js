@@ -5,6 +5,8 @@ const ENDPOINT = import.meta.env.VITE_ENDPOINT;
 const USERNAME = import.meta.env.VITE_SOAP_USERNAME;
 const PASSWORD = import.meta.env.VITE_SOAP_PASSWORD;
 
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+
 const soapRequest = async (xmlData) => {
   const envelope = `
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:coc="cocokms.xsd">
@@ -19,7 +21,7 @@ const soapRequest = async (xmlData) => {
 </soapenv:Envelope>`;
 
   try {
-    const response = await axios.post(ENDPOINT, envelope, {
+    const response = await axios.post(proxyUrl + ENDPOINT, envelope, {
       headers: {
         "Content-Type": "application/xml",
         Accept: "application/xml, text/xml",
