@@ -17,7 +17,7 @@ import { create } from "xmlbuilder2";
  * - `headerFormatter()`: Formats and adds the header section of the XML.
  * - `contentFormatter()`: Formats and adds the content section (DETIL) of the XML.
  * - `getFormattedXML()`: Finalizes and returns the formatted XML string.
- * 
+ *
  * Author: Alvian Zachry F, M.Si
  * Github: https://github.com/alvianzf
  */
@@ -58,8 +58,8 @@ class XMLFormatter {
       for (let j = 0; j < this.data.headers.length; j++) {
         const header = this.data.headers[j];
         const value = this.data[header][i];
-        
-        if (!XMLFormatter.HEADER_DATA.includes(header)) {
+
+        if (!XMLFormatter.HEADER_DATA.includes(header) && value) {
           kmsElement.ele(header).txt(value);
         }
       }
@@ -71,6 +71,9 @@ class XMLFormatter {
   }
 
   getFormattedXML() {
+    this.headerFormatter();
+    this.contentFormatter();
+
     if (!this.XML) {
       throw new Error("Header must be formatted first.");
     }
