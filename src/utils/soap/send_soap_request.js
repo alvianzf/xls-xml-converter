@@ -13,7 +13,7 @@ const soapRequest = async (xmlData) => {
           <tem:${SERVICE_NAME}>
             <tem:fStream>${xmlData}</tem:fStream>
             <tem:Username>${USERNAME}</tem:Username>
-            <tem:Password>${PASSWORD}}</tem:Password>
+            <tem:Password>${PASSWORD}</tem:Password>
           </tem:${SERVICE_NAME}>
         </soapenv:Body>
       </soapenv:Envelope>
@@ -24,13 +24,26 @@ const soapRequest = async (xmlData) => {
       headers: {
         "Content-Type": "text/xml",
         Accept: "application/xml, text/xml",
-        SOAPAction: "http://tempuri.org/coarricodeco_kemasan",
+        SOAPAction: `http://tempuri.org/${SERVICE_NAME}`,
       },
     });
-    return response.data;
+
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(response.data, "text/xml");
+    const result = xmlDoc.getElementsByTagName(`${SERVICE_NAME}Result`)[0]
+      .textContent;
+
+    const isSuccess = result.includes("Berhasil");
+    return {
+      status: isSuccess ? "success" : "danger",
+      message: result,
+    };
   } catch (error) {
     console.error("Error during SOAP request:", error);
-    throw error;
+    return {
+      status: "error",
+      message: "An error occurred",
+    };
   }
 };
 
