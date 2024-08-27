@@ -5,7 +5,7 @@ const ENDPOINT = import.meta.env.VITE_ENDPOINT;
 const USERNAME = import.meta.env.VITE_SOAP_USERNAME;
 const PASSWORD = import.meta.env.VITE_SOAP_PASSWORD;
 
-const soapRequest = (xmlData) => {
+const soapRequest = async (xmlData) => {
   const envelope = `
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:coc="cocokms.xsd">
     <soapenv:Header/>
@@ -18,11 +18,18 @@ const soapRequest = (xmlData) => {
     </soapenv:Body>
 </soapenv:Envelope>`;
 
-  return axios.post(ENDPOINT, envelope, {
-    headers: {
-      "Content-Type": "text/xml",
-    },
-  });
+  try {
+    const response = await axios.post(ENDPOINT, envelope, {
+      headers: {
+        "Content-Type": "application/xml",
+        Accept: "application/xml, text/xml",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error during SOAP request:", error);
+    throw error;
+  }
 };
 
 export default soapRequest;
