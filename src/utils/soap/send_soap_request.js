@@ -23,8 +23,10 @@ const soapRequest = async (xmlData) => {
   try {
     const response = await axios.post(proxyUrl + ENDPOINT, envelope, {
       headers: {
-        "Content-Type": "application/xml",
+        "Content-Type": "text/xml",
         Accept: "application/xml, text/xml",
+        "Username": USERNAME,
+        "Password": PASSWORD
       },
     });
     return response.data;
