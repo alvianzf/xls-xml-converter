@@ -8,9 +8,9 @@ const PASSWORD = "1234";
 const soapRequest = async (xmlData) => {
   const envelope = `
     <?xml version="1.0" encoding="utf-8"?>
-    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                   xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
       <soap:Body>
         <${SERVICE_NAME} xmlns="http://services.beacukai.go.id/">
           <fStream>${xmlData}</fStream>
@@ -26,7 +26,7 @@ const soapRequest = async (xmlData) => {
       headers: {
         "Content-Type": "text/xml; charset=utf-8",
         Accept: "text/xml, application/xml",
-        SOAPAction: `http://services.beacukai.go.id/${SERVICE_NAME}`,
+        SOAPAction: `https://services.beacukai.go.id/${SERVICE_NAME}`,
       },
     });
 
