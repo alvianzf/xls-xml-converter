@@ -37,7 +37,7 @@ class XMLFormatter {
     for (let i = 0; i < XMLFormatter.HEADER_DATA.length; i++) {
       const headerKey = XMLFormatter.HEADER_DATA[i];
       if (this.data.hasOwnProperty(headerKey)) {
-        doc.ele(headerKey).txt(this.data[headerKey]);
+        doc.ele(headerKey).txt(this.data[headerKey][0]);
       }
     }
 
