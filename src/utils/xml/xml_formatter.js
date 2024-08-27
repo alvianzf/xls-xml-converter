@@ -15,7 +15,7 @@ import { create } from "xmlbuilder2";
  *
  * Methods:
  * - `headerFormatter()`: Formats and adds the header section of the XML.
- * - `contentFormatter()`: Formats and adds the content section (DETIL) of the XML.
+ * - `contentFormatter()`: Formats and adds the content section (DETIL and KMS) of the XML.
  * - `getFormattedXML()`: Finalizes and returns the formatted XML string.
  *
  * Author: Alvian Zachry F, M.Si
@@ -34,42 +34,37 @@ class XMLFormatter {
       .ele("COCOKMS")
       .ele("HEADER");
 
-    for (let i = 0; i < XMLFormatter.HEADER_DATA.length; i++) {
-      const headerKey = XMLFormatter.HEADER_DATA[i];
+    XMLFormatter.HEADER_DATA.forEach((headerKey) => {
       if (this.data.hasOwnProperty(headerKey)) {
         this.XML.ele(headerKey).txt(this.data[headerKey][0]);
       }
-    }
+    });
 
-    this.XML.up();
-    this.XML.up();
+    this.XML = this.XML.up();
   }
 
   contentFormatter() {
     if (!this.XML) {
-      throw new Error("Header must be formatted first.");
+      throw new Error("XML must be initialized first.");
     }
 
-    this.XML = this.XML.up();
-    this.XML.ele("DETIL");
+    this.XML = this.XML.ele("DETIL");
 
     const length = this.data[this.data.headers[0]].length;
     for (let i = 0; i < length; i++) {
       const kmsElement = this.XML.ele("KMS");
 
-      for (let j = 0; j < this.data.headers.length; j++) {
-        const header = this.data.headers[j];
+      this.data.headers.forEach((header) => {
         const value = this.data[header][i];
 
         if (!XMLFormatter.HEADER_DATA.includes(header) && value) {
           kmsElement.ele(header).txt(value);
         }
-      }
+      });
 
       kmsElement.up();
     }
 
-    this.XML.up();
     this.XML.up();
   }
 
