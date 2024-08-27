@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const SERVICE_NAME = import.meta.env.VITE_SERVICE_NAME;
-const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+// const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+const ENDPOINT = "./proxy/proxy";
 const USERNAME = import.meta.env.VITE_SOAP_USERNAME;
 const PASSWORD = import.meta.env.VITE_SOAP_PASSWORD;
 
@@ -25,8 +26,6 @@ const soapRequest = async (xmlData) => {
       headers: {
         "Content-Type": "text/xml",
         Accept: "application/xml, text/xml",
-        "Username": USERNAME,
-        "Password": PASSWORD
       },
     });
     return response.data;
