@@ -2,7 +2,7 @@ import axios from "axios";
 
 const SERVICE_NAME = import.meta.env.VITE_SERVICE_NAME;
 // const ENDPOINT = import.meta.env.VITE_ENDPOINT;
-const ENDPOINT = "./proxy/proxy";
+const ENDPOINT = "../proxy/proxy";
 const USERNAME = import.meta.env.VITE_SOAP_USERNAME;
 const PASSWORD = import.meta.env.VITE_SOAP_PASSWORD;
 
