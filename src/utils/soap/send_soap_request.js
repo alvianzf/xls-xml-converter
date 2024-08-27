@@ -1,37 +1,38 @@
 import axios from "axios";
 
-const SERVICE_NAME = import.meta.env.VITE_SERVICE_NAME;
-const ENDPOINT = import.meta.env.VITE_ENDPOINT;
-const USERNAME = import.meta.env.VITE_SOAP_USERNAME;
-const PASSWORD = import.meta.env.VITE_SOAP_PASSWORD;
+const SERVICE_NAME = "CoCoKms_Tes";
+const ENDPOINT = "https://tpsonline.beacukai.go.id/tps/service.asmx";
+const USERNAME = "TES";
+const PASSWORD = "1234";
 
 const soapRequest = async (xmlData) => {
   const envelope = `
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-        <soapenv:Header/>
-        <soapenv:Body>
-          <tem:${SERVICE_NAME}>
-            <tem:fStream>${xmlData}</tem:fStream>
-            <tem:Username>${USERNAME}</tem:Username>
-            <tem:Password>${PASSWORD}</tem:Password>
-          </tem:${SERVICE_NAME}>
-        </soapenv:Body>
-      </soapenv:Envelope>
-    `;
+    <?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body>
+        <${SERVICE_NAME} xmlns="http://services.beacukai.go.id/">
+          <fStream>${xmlData}</fStream>
+          <Username>${USERNAME}</Username>
+          <Password>${PASSWORD}</Password>
+        </${SERVICE_NAME}>
+      </soap:Body>
+    </soap:Envelope>
+  `;
 
   try {
     const response = await axios.post(ENDPOINT, envelope, {
       headers: {
-        "Content-Type": "text/xml",
-        Accept: "application/xml, text/xml",
-        SOAPAction: `http://tempuri.org/${SERVICE_NAME}`,
+        "Content-Type": "text/xml; charset=utf-8",
+        Accept: "text/xml, application/xml",
+        SOAPAction: `http://services.beacukai.go.id/${SERVICE_NAME}`,
       },
     });
 
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(response.data, "text/xml");
-    const result = xmlDoc.getElementsByTagName(`${SERVICE_NAME}Result`)[0]
-      .textContent;
+    const result = xmlDoc.getElementsByTagName(`${SERVICE_NAME}Result`)[0]?.textContent;
 
     const isSuccess = result.includes("Berhasil");
     return {
