@@ -84,8 +84,8 @@ class XMLFormatter {
 XMLFormatter.HEADER_DATA = [
   "KD_DOK",
   "KD_TPS",
-  "NM_ANGKUT",
-  "NO_VOY_FLIGHT",
+  "NM_PENGANGKUT",
+  "NO_FLIGHT",
   "CALL_SIGN",
   "TGL_TIBA",
   "KD_GUDANG",
