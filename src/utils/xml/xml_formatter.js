@@ -8,7 +8,7 @@ import { create } from "xmlbuilder2";
  * const formatter = new XMLFormatter(data);
  * formatter.headerFormatter();
  * formatter.contentFormatter();
- * const xmlString = formatter.formatXML();
+ * const xmlString = formatter.getFormattedXML();
  *
  * - `data`: An object containing the data to be formatted into XML.
  * - `HEADER_DATA`: A static array that defines the headers to be included in the XML.
@@ -29,7 +29,7 @@ class XMLFormatter {
   }
 
   headerFormatter() {
-    const doc = create({ version: "1.0", encoding: "utf-8" })
+    this.XML = create({ version: "1.0", encoding: "utf-8" })
       .ele("DOCUMENT", { xmlns: "cocokms.xsd" })
       .ele("COCOKMS")
       .ele("HEADER");
@@ -37,12 +37,12 @@ class XMLFormatter {
     for (let i = 0; i < XMLFormatter.HEADER_DATA.length; i++) {
       const headerKey = XMLFormatter.HEADER_DATA[i];
       if (this.data.hasOwnProperty(headerKey)) {
-        doc.ele(headerKey).txt(this.data[headerKey][0]);
+        this.XML.ele(headerKey).txt(this.data[headerKey][0]);
       }
     }
 
-    doc.up();
-    this.XML = doc;
+    this.XML.up();
+    this.XML.up();
   }
 
   contentFormatter() {
@@ -50,10 +50,12 @@ class XMLFormatter {
       throw new Error("Header must be formatted first.");
     }
 
-    const detailElement = this.XML.ele("DETIL");
+    this.XML = this.XML.up();
+    this.XML.ele("DETIL");
+
     const length = this.data[this.data.headers[0]].length;
     for (let i = 0; i < length; i++) {
-      const kmsElement = detailElement.ele("KMS");
+      const kmsElement = this.XML.ele("KMS");
 
       for (let j = 0; j < this.data.headers.length; j++) {
         const header = this.data.headers[j];
@@ -67,7 +69,8 @@ class XMLFormatter {
       kmsElement.up();
     }
 
-    detailElement.up();
+    this.XML.up();
+    this.XML.up();
   }
 
   getFormattedXML() {
@@ -75,7 +78,7 @@ class XMLFormatter {
     this.contentFormatter();
 
     if (!this.XML) {
-      throw new Error("Header must be formatted first.");
+      throw new Error("XML not initialized.");
     }
     return this.XML.end({ prettyPrint: true });
   }
